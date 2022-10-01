@@ -1,0 +1,167 @@
+// Override Variables
+$input-btn-padding-y:         .5rem;
+$input-btn-padding-x:         2rem;
+$navbar-brand-font-size:         2.25rem;
+$navbar-light-brand-color:      $primary;
+$navbar-toggler-focus-width:       0.1rem;
+$navbar-light-hover-color: $secondary;
+$navbar-nav-link-hover-color:$success;
+
+
+// these css must be replace with BS overrides
+// have to delete some line that are not in use now
+
+ i {
+   color: $gray;
+   &:hover {
+       color: $primary;
+   }
+}
+.fas {
+   display: flex;
+   justify-content: space-between;
+   margin: .75rem;
+   font-size: x-large;
+   color: $secondary;
+}
+
+
+
+.card {
+
+   padding-top: 1rem;
+   margin-top: .8rem;
+   padding: .2rem;
+   box-shadow: 5px 10px 18px $light-bg;
+
+   a {
+      text-decoration: none;
+      font-size: .9rem;
+      color: $dark;
+   }
+
+}
+
+.profile-img {
+   width: 50px;
+   height: 50px;
+   margin: .4rem;
+
+}
+
+
+.badges {
+   display: flex;
+   flex-direction: column;
+   padding: .2rem;
+   margin-block: 1rem;
+}
+
+.side-icon .fas {
+   color: $dark;
+}
+
+.side-bar {
+   padding: .4rem;
+
+   a {
+      text-decoration: none;
+      font-size: 1rem;
+      color: $dark;
+   }
+}
+
+.btn-light {
+   justify-items: end;
+}
+
+.label-light {
+   background-color: $light;
+   text-align: left;
+   padding: 1rem;
+   border: 0;
+   cursor: pointer;
+
+   :hover {
+      background-color: aquamarine;
+   }
+}
+
+.card-bottom {
+   display: flex;
+   justify-content: flex-end;
+   padding: 0;
+
+   i {
+      margin: 1rem;
+   }
+}
+
+
+
+
+
+.left {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin: auto;
+   height: 100vh;
+}
+
+.right {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin: auto;
+   height: 100vh;
+
+}
+
+.main {
+   display: block;
+   padding: 3rem;
+}
+
+.login {
+   background-color: $light-bg;
+   box-shadow: 5px 10px 18px $light;
+
+}
+
+// profile
+
+
+
+
+.cover-btn {
+   display: block;
+   position: absolute;
+   margin: 1rem;
+}
+
+#profile {
+   position: relative;
+   height: 6rem;
+   width: 6rem;
+   margin: 1rem;
+}
+
+.post-img {
+   width: 1rem;
+   height: 1rem;
+}
+
+.social i {
+   margin-right: 5rem;
+}
+
+.fa {
+   color: $gray;
+}
+
+.profile-icon {
+   display: inline;
+   width: 12px;
+   height: 12px;
+}
