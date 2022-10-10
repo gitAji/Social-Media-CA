@@ -26,9 +26,9 @@ The following user stories are optional:
 
 ## Links
 
-<a href=''>The fakebook </a><br>
-<a href=''>Pjoject Paln </a><br>
-<a href=''>Wireframe </a><br>
+<a href='https://fakebook-ca.netlify.app/f'>The fakebook </a><br>
+<a href='https://github.com/users/gitAji/projects/1'>Pjoject Paln </a><br>
+<a href='https://www.figma.com/file/aLWg8mpf2iGhbZLkcPAdMq/Social-media-CA?node-id=0%3A1'>Wireframe </a><br>
 
 ## User Flow
 <b> User sign up </b> <br>
