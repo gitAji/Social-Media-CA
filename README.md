@@ -29,3 +29,13 @@ The following user stories are optional:
 <a href=''>The fakebook </a><br>
 <a href=''>Pjoject Paln </a><br>
 <a href=''>Wireframe </a><br>
+
+## User Flow
+<b> User sign up </b> <br>
+<b> User login </b>   <br>
+<b> Home </b>  > all post > filter post  <br>
+<b> Profile </b>  > own post > crate post > manage post (edit or delete)  <br>
+<b> Log out </b> 
+
+
+
