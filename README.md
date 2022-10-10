@@ -33,7 +33,7 @@ The following user stories are optional:
 ## User Flow
 <b> User sign up </b> <br>
 <b> User login </b>   <br>
-<b> Home </b>  > all post > filter post  <br>
+<b> Home </b>  > all post > view a post > filter posts > search posts > react to a post <br> 
 <b> Profile </b>  > own post > crate post > manage post (edit or delete)  <br>
 <b> Log out </b> 
 
