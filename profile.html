@@ -5,12 +5,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src=""></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <link rel="shortcut icon" href="images/icons/favicon.ico" type="image/x-icon">
-    <script type="module" src="js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
+    <script type="module" src="js/profile.js" defer></script>
+    <script type="module" src="js/ownposts.js" defer></script>
+    <script type="module" src="js/createpost.js" defer></script>
+    <script type="module" src="js/managepost.js" defer></script>
+
+
     <title>Social Media</title>
 </head>
 
@@ -18,8 +32,8 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand ms-4" href="home.html">fakebook</a>
+            <nav class="navbar navbar-expand-lg navbar-white shadow-lg">
+                <a class="navbar-brand ms-4 fw-bold" href="home.html">fakebook</a>
                 <button class="navbar-toggler border-0 m-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -27,7 +41,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <form class="m-auto d-xs-none d-sm-none d-md-none d-lg-flex">
-                        <input class="form-control form-control-md" type="search" placeholder="Search" />
+                        <input class="form-control form-control-md rounded-pill border-0 bg-light" type="search"
+                            placeholder="Search" />
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item m-xs-auto m-sm-auto m-md-auto">
@@ -35,7 +50,7 @@
                         </li>
                         <li class="nav-item m-xs-auto m-sm-auto m-md-auto">
                             <a class="nav-link" href="#"><i class="fas fa-comment"></i> </a>
-                            
+
                         </li>
                         <li class="nav-item m-xs-auto m-sm-auto m-md-auto">
                             <a class="nav-link" href="index.html"><i class="fas fa-user"></i> </a>
@@ -50,14 +65,16 @@
     <div class="container">
         <div class="card">
 
-            <img src="images/post1.jpeg" alt="">
+            <img id="" src="images/post1.jpeg" alt="" width="100%">
 
-            <button class="btn btn-light cover-btn p-sm-1 p-0">Edit Cover</button>
+
+
+            <button class="btn btn-light cover-btn"><i class="fa fa-pen"></i></button>
         </div>
         <!-- profile image section -->
         <div class="profile m-sm-0 mx-sm-0">
-            <img src="images/profile.png" alt="" id="profile">
-            <span class="card-title"><b>Ajeerathan</b></span>
+            <img src="" alt="" class="p-2" id="avatar">
+            <span class="card-title fw-bold" id="user-name"><b></b></span>
             <button class="btn btn-light profile-btn m-sm-0">Edit Profile</button>
             <a href="home.html"><i class="fa fa-home"></i></a>
         </div>
@@ -94,40 +111,56 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="">Friends(200)
+                    <div class="">Friends
                         <hr>
                         <div class="d-flex flex-wrap">
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
                             <li class="img-list list-unstyled p-3 ">
-                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-5x"></i></a>
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
                             </li>
-                            
+                            <li class="img-list list-unstyled p-3 ">
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
+                            </li>
+                            <li class="img-list list-unstyled p-3 ">
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
+                            </li>
+                            <li class="img-list list-unstyled p-3 ">
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
+                            </li>
+                            <li class="img-list list-unstyled p-3 ">
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
+                            </li>
+                            <li class="img-list list-unstyled p-3 ">
+                                <a href="#" class="m-b-5 mx-sm-auto"><i class="fa fa-user fa-3x"></i></a>
+                            </li>
+
+
                         </div>
                     </div>
 
@@ -137,14 +170,6 @@
                     <div class="friends">Photos</div>
                     <hr>
                     <div class="d-flex flex-wrap">
-                        <i class="fa fa-image fa-4x m-3"></i>
-                        <i class="fa fa-image fa-4x m-3"></i>
-                        <i class="fa fa-image fa-4x m-3"></i>
-                        <i class="fa fa-image fa-4x m-3"></i>
-                        <i class="fa fa-image fa-4x m-3"></i>
-                        <i class="fa fa-image fa-4x m-3"></i>
-                        <i class="fa fa-image fa-4x m-3"></i>
-                        <i class="fa fa-image fa-4x m-3"></i>
 
                     </div>
 
@@ -152,12 +177,13 @@
                 </div>
             </div>
             <!-- left side ends here -->
-            <div class="col-lg">
+            <div class="col-lg-6">
                 <div class="card">
                     <form>
                         <div class="form-group">
-                            <textarea class="form-control status-box" rows="2"
-                                placeholder="What's on your mind?"></textarea>
+                            <textarea class="form-control status-box border-0 bg-light rounded-pill p-3 mb-3 mt-3"
+                                rows="1 py-2 m-3" placeholder="What's on your mind?" data-bs-toggle="modal"
+                                data-bs-target="#post-box"></textarea>
                         </div>
                     </form>
                     <div>
@@ -169,71 +195,123 @@
                 </div>
                 <div class="section"><br>
                     <h5>Posts</h5>
-                    <button class="btn btn-light "><i class="fa fa-filter"></i>Filter</button>
-                    <button class="btn btn-light"><i class="fa fa-cog"></i>Manage Posts</button>
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#filter" id="filter-modal"><i
+                            class="fa fa-filter"></i> Filter</button>
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#manage" id="manage-modal"><i
+                            class="fa fa-cog"></i> Manage Posts</button>
                     <hr>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <img class="rounded-circle profile-img" src="/images/profile.png" alt="profile" />
-                            <h5 class="card-title py-3">Ajeerathan</h5>
-                        </div>
-                        <p class="card-text">
-                            Confused about the meaning of life?
-                        </p>
+                <!-- Button trigger modal -->
 
-                        <div class="card-bottom">
-                            <i class="far fa-thumbs-up">3k</i>
-                            <i class="far fa-comment">5k</i>
-                        </div>
+                <div class="card border-0">
+                    <div class="search py-4">
 
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 45 mins ago</small>
-                        </p>
-                        <hr>
-                        <div class="social">
-                            <i class="far fa-thumbs-up"></i>
-                            <i class="far fa-comment"></i>
-                            <i class="far fa-share"></i>
+                        <form class="d-flex">
+                            <input class="form-control rounded-pill m-1 border-0 bg-light" id="search-input"
+                                type="search" placeholder="Search posts here." aria-label="Search">
+                        </form>
+                    </div>
+                    <div class="card-body" id="ownPosts">
+                        <div class="spinner-border text-primary p-3 m-3 " role="status">
+                            <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <img class="rounded-circle profile-img" src="/images/profile.png" alt="profile" />
-                            <h5 class="card-title py-3">Ajeerathan</h5>
-                        </div>
-                        <p class="card-text">
-                            Designer or developer? have you ever wondered what it means to be a designer or a developer?
-                        </p>
-                        <div class="card-bottom">
-                            <i class="far fa-thumbs-up">2k</i>
-                            <i class="far fa-comment">8k</i>
-                        </div>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 50 mins ago</small>
-                        </p>
-                        <hr>
-                        <div class="social">
-                            <i class="far fa-thumbs-up"></i>
-                            <i class="far fa-comment"></i>
-                            <i class="far fa-share"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="load-more m-5 ">
-                    <button class="btn btn-light px-5">Load More</button>
                 </div>
             </div>
+
 
 
             <!-- right side ends here -->
         </div>
     </div>
     </div>
+    <!-- Modal for post box starts here -->
+    <div class="modal fade" id="post-box" tabindex="-1" aria-labelledby="post-box" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Create post</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="profile">
+                        <!--<img src="" alt="" class="p-2" id="avatar">
+            <span class="card-title" id="user-name"><b></b></span>-->
+                        <p id="validation-message"></p>
+                    </div>
+                    <div class="form-group py-2">
+                        <input class="form-control status-head" id="post-title"
+                            placeholder="Your post title goes here.">
+                    </div>
+                </div>
+                <div class="form-group p-3">
+                    <textarea class="form-control status-box" id="post-body" rows="5" name="statusData"
+                        placeholder="Your post body goes here."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="post-btn" type="submit">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Modal for post box ends here -->
+
+    <!-- Modal for filter starts here -->
+    <div class="modal fade" id="filter" tabindex="-1" aria-labelledby="filter" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title">Filter Posts</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Use filter to find your post</p>
+                    <div class="form-group">
+                        <div class="seaech p-2" id="filter-search">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+
+                    </div>
+                    <div class="card-body" id="filterPost">
+                        Loading...
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-light" type="reset">Clear</button>
+                        <button class="btn btn-primary" id="filter-btn" type="submit">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for filter ends here -->
+
+    <!-- Modal for manage post starts here -->
+
+    <div class="modal fade" id="manage" tabindex="-1" aria-labelledby="manage" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title">Manage Posts</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="managePost">
+
+                    <div class="spinner-border text-primary p-3 m-3 " role="status">
+                        <span class="card sr-only">Loading...</span>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-light" type="reset">Clear</button>
+                        <button class="btn btn-primary" id="manage-btn" type="submit">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for manage post ends here -->
+
+
     <!-- footer section -->
     <footer>
         <footer class="text-lg-center m-5">

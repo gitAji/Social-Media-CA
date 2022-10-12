@@ -11,7 +11,7 @@ i:hover {
   justify-content: space-between;
   margin: 0.75rem;
   font-size: x-large;
-  color: #3B5998;
+  color: #000;
 }
 
 .card {
@@ -3815,9 +3815,9 @@ textarea.form-control-lg {
   --bs-navbar-hover-color: #3B5998;
   --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
   --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
-  --bs-navbar-brand-padding-y: -0.4375rem;
+  --bs-navbar-brand-padding-y: -0.5875rem;
   --bs-navbar-brand-margin-end: 1rem;
-  --bs-navbar-brand-font-size: 2.25rem;
+  --bs-navbar-brand-font-size: 2.45rem;
   --bs-navbar-brand-color: #1877f2;
   --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
   --bs-navbar-nav-link-padding-x: 0.5rem;

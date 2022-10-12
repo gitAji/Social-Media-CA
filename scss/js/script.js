@@ -1,6 +1,10 @@
 
-
-import { clearSession} from './session.mjs';
+/*
+  import{default as calculate,addNumbers as add}from './modules/module.mjs';
+  const result=add(30,30);
+  console.log(result);
+*/
+import { getSession } from './modules/session.mjs';
 import { getAllProfiles,listProfiles } from './utils.mjs';
 
 const API_BASE_URL = "https://nf-api.onrender.com/api/v1";
@@ -13,7 +17,7 @@ const accessToken=localStorage.getItem('accessToken');
 const aProfileEndpoint=`${API_BASE_URL}${profilesEndpoint}${userName}`;
 const homeURL = `${API_BASE_URL}${profilesEndpoint}`;
 
-//console.log(aProfileEndpoint);
+console.log(aProfileEndpoint);
 const profileName= document.getElementById('user-name');
 const email = document.getElementById('email');
 const banner=document.getElementById('banner');
@@ -34,7 +38,7 @@ const logOutBtn=document.getElementById('logout');
 .then((response) => response.json())
 .then((data) => {
 userData(data);
-  //console.log('Success:', data);
+  console.log('Success:', data);
 })
 .catch((error) => {
   console.error('Error:', error);
@@ -52,8 +56,8 @@ function userData(user){
 function userLogOut(){
 logOutBtn.addEventListener('click',(e)=>{
   e.preventDefault();
-  //console.log(e.target);
-  clearSession();
+  console.log(e.target);
+  getSession();
 })
 }
 userLogOut();
@@ -62,10 +66,10 @@ userLogOut();
 
 profileName.addEventListener('click',(e) =>{
   e.preventDefault();
-  //console.log('hello profile');
+  console.log('hello profile');
   window.location.href='./profile.html';
   localStorage.getItem(userName,accessToken);
-  //console.log(userName);
+  console.log(userName);
 })
 
 
