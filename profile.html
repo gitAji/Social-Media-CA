@@ -25,7 +25,7 @@
     <script type="module" src="js/managepost.js" defer></script>
 
 
-    <title>Social Media</title>
+    <title>profile-fakebook</title>
 </head>
 
 <body>
@@ -65,7 +65,7 @@
     <div class="container">
         <div class="card">
 
-            <img id="" src="images/post1.jpeg" alt="" width="100%">
+            <img id="cover" src="images/post1.jpeg" alt="" width="100%">
 
 
 
@@ -75,8 +75,7 @@
         <div class="profile m-sm-0 mx-sm-0">
             <img src="" alt="" class="p-2" id="avatar">
             <span class="card-title fw-bold" id="user-name"><b></b></span>
-            <button class="btn btn-light profile-btn m-sm-0">Edit Profile</button>
-            <a href="home.html"><i class="fa fa-home"></i></a>
+            <a href="home.html"><i class="fa fa-home p-2"></i></a>
         </div>
 
 
@@ -92,21 +91,21 @@
                     <div class="card-body">
                         <h5 class="card-title">Intro</h5>
                         <p class="card-text">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis quis eligendi voluptatem
-                            quia architecto. Porro architecto vero at, eveniet laborum praesentium inventore nostrum
-                            nihil facilis cumque sit quaerat libero maxime.
+        
                         </p>
+                        <button class="btn btn-light">Add Bio</button>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fa fa-calendar-times p-2"></i> <b>Joined:</b> 12-05-2022
+                        <li class="list-group-item"><i class="fa fa-envelope p-2"></i> <b><span id="email"></span></b>
                         </li>
-                        <li class="list-group-item"><i class="fa fa-people-arrows p-2"></i><b> Followed:</b> 200k</li>
-                        <li class="list-group-item"><i class="fa fa-location-arrow p-2"></i> <b> Current city:</b>
-                            Bergen</li>
+                        <li class="list-group-item"><i class="fa fa-people-arrows p-2"></i><b> Followers:<span id="followers">0</span></b></li>
+                        <li class="list-group-item"><i class="fa fa-user-friends p-2"></i> <b> Followed:<span id="followed">0</span></b></li>
+                        <li class="list-group-item"><i class="fa fa-blog p-2"></i> <b> Posts:<span id="profile-posts">0</span></b></li>
+
                     </ul>
                     <div class="card-body">
-                        <button class="btn btn-light">Edit Details</button>
-                        <button class="btn btn-light">Add Details</button>
+                        <button class="btn btn-light" id="edit-details">Edit Details</button>
+                        <button class="btn btn-light" id="add-details">Add Details</button>
 
                     </div>
                 </div>
@@ -269,17 +268,18 @@
                     <p>Use filter to find your post</p>
                     <div class="form-group">
                         <div class="seaech p-2" id="filter-search">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
+                           <select name="drop-down" id="filter">
+                            <option value="new">New posts</option>
+                            <option value="old">Old posts</option>
+                           </select>
 
+                            
+                        </div>
                     </div>
                     <div class="card-body" id="filterPost">
                         Loading...
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-light" type="reset">Clear</button>
-                        <button class="btn btn-primary" id="filter-btn" type="submit">Done</button>
-                    </div>
+                  
                 </div>
             </div>
         </div>

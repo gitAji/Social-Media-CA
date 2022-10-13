@@ -17,9 +17,13 @@ const profileName= document.getElementById('user-name');
 const email = document.getElementById('email');
 const banner=document.getElementById('cover');
 const avatar=document.getElementById('avatar');
+const followers=document.getElementById('followers');
+const following=document.getElementById('following');
+const profilePosts=document.getElementById('profile-posts');
 const logOutBtn=document.getElementById('logout');
 const filterBtn=document.getElementById('filter-modal');
 const modalBox= document.getElementsByClassName('.modal');
+
 
 
   fetch(`${aProfileEndpoint}`,{
@@ -45,9 +49,18 @@ function userData(user){
   profileName.innerHTML = user.name;
   avatar.src=user.avatar;
   email.innerHTML=user.email;
-  //banner.src=user.banner;
-  //console.log(user.banner);
+  followers.innerHTML=user._count.followers;
+  following.innerHTML=user._count.following;
+  profilePosts.innerHTML=user._count.posts;
+  
+  banner.src=user.banner;
+  console.log(user.banner);
 
   
 }
+
+banner.addEventListener('click',(e)=>{
+  e.preventDefault();
+ console.log('banner clicked');
+})
 

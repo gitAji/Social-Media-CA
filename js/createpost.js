@@ -8,8 +8,11 @@ const userMessage=document.getElementById('validation-message');
 postButton.addEventListener('click',(e) =>{
 e.preventDefault();
 //console.log('btn clicked');
+
+
 const body=document.getElementById('post-body').value.trim();
 const title=document.getElementById('post-title').value.trim();
+
 if(title===""|| body==="")
 {   
 userMessage.innerHTML=`<div class="text-warning">Please fill all the fields!<div>`;
