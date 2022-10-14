@@ -26,6 +26,6 @@ The following user stories are optional:
 
 ## Links
 
-<a href='https://deploy-preview-2--fakebook-js2.netlify.app/profile.html'>The fakebook after corrections</a><br>
+<a href=''</a><br>
 <a href=''>Pjoject Paln </a><br>
 <a href=''>Wireframe </a><br>
