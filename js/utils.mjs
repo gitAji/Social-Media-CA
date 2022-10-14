@@ -74,8 +74,8 @@ export function listPosts(posts) {
   
   
     <div class="card-bottom">
-      <i class="far fa-thumbs-up">${post._count.reactions}</i>
-      <i class="far fa-comment">${post._count.comments}</i>
+      <i class="far fa-thumbs-up" data-id="like">${post._count.reactions}</i>
+      <i class="far fa-comment" data-id="comment">${post._count.comments}</i>
     </div>
     <p class="card-text">
       <small class="text-muted">Created:${postedDate}</small>
@@ -104,17 +104,22 @@ searchInput.addEventListener("keyup", filterPosts);
 function filterPosts() {
 
   const filterQuery = searchInput.value;
+  const query = localStorage.setItem("filterQuery", filterQuery); // session storage doesn't work
   //console.log(filterQuery);
   const filteredPost = collection.filter((post) => {
+    const id = post.id.toLocaleString();
     const t = post.title.toLowerCase();
     const b = post.body.toLowerCase();
-    if (t.indexOf(filterQuery) > -1) return true;
-    if (b.indexOf(filterQuery) > -1) return true;
-
-    return false;
-    //console.log(t, b);
-  })
+    const q = filterQuery.toLowerCase();
+    return t.includes(q) || b.includes(q) || id.includes(q);
+  });
+  //console.log(filteredPost);
   listPosts(filteredPost);
+
+  if (filteredPost.length === 0) {
+    allPosts.innerHTML = `<div=class="text-primary"> No result found for "${filterQuery}" </div><div class="text-warning">Use back key to clear!</div>`;
+  }
+
 }
 
 /**
@@ -180,8 +185,8 @@ export function listOwnPosts(posts) {
           </p>
         
           <div class="card-bottom">
-            <i class="far fa-thumbs-up">${post._count.reactions}</i>
-            <i class="far fa-comment">${post._count.comments}</i>
+            <i class="far fa-thumbs-up" id="like">${post._count.reactions}</i>
+            <i class="far fa-comment" id="comment">${post._count.comments}</i>
           </div>
           <p class="card-text">
             <small class="text-muted">Created:${postedDate}</small>
@@ -274,8 +279,8 @@ export function listAPost(post, out) {
   </p>
 
   <div class="card-bottom">
-    <i class="far fa-thumbs-up">${post._count.reactions}</i>
-    <i class="far fa-comment">${post._count.comments}</i>
+    <i class="far fa-thumbs-up" id="like">${post._count.reactions}</i>
+    <i class="far fa-comment" id="comment">${post._count.comments}</i>
   </div>
   <p class="card-text">
     <small class="text-muted">Created:${postedDate}</small>
@@ -293,8 +298,9 @@ export function listAPost(post, out) {
 
 }
 
+
 /**
- * get profile
+ * get profiles
  * @param {*} user
  * @returns
  */
@@ -380,9 +386,11 @@ export async function deletePost(url) {
  * @param {*} post
  * @returns
  */
- const message= document.getElementById('user-message');
+const message = document.getElementById('user-message');
+const saveBtn=document.getElementById('edit-save-btn');
+const manageBtnX = document.getElementById('manage-button');
 
- export async function donePost(url, data) {
+export async function donePost(url, data) {
   try {
     const accessToken = localStorage.getItem('accessToken');
     const options = {
@@ -397,20 +405,51 @@ export async function deletePost(url) {
     const response = await fetch(url, options);
     //console.log(response);
     const json = await response.json();
-    setTimeout(() => {
-        window.location.reload();
-        }, 1000);
-    if (response.ok){
-       message.innerHTML=`<div class="spinner-border text-primary" role="status">
-       <span class="sr-only">Loading...</span>
-     </div>`;
+    
+    if (response.ok) {
+     setTimeout(() => {
+      message.innerHTML = `<div class="text-success fw-bold p-4">Your post is updated!</div>`;
+     }, 500);
+     setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+     
+      
     };
     //console.log(json);
     return json;
-    
+
   } catch (error) {
     console.log(error);
   }
 }
 
- 
+
+
+
+
+/*
+
+export async function likePost(url) {
+  try {
+    const accessToken = localStorage.getItem('accessToken');
+    const options = {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+    const response = await fetch(url, options);
+    //console.log(response);
+    const json = await response.json();
+    console.log(json);
+    if (response.ok) {
+      window.location.reload();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+*/

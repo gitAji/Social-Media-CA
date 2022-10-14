@@ -31,8 +31,11 @@ async function getAPost (url) {
         //console.log(response);
         const posts = await response.json();
         //console.log(posts);
+        if(response.status!=200){
+            out.innerHTML=`<div class="text-warning fw-bold p-2">No post found!</div>`;
+          }
         listAPost(posts,out);
-       
+     
 
     } catch(error) {
         //console.warn(error);
@@ -81,9 +84,13 @@ localStorage.getItem('userName');
 deleteBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     console.log("delete btn clicked");
-    
+    //get confirmation
+    const confirmDelete=confirm("Are you sure you want to delete this post?");
+if(confirmDelete){
     deletePost(deletePostUrl);
-})
+} 
+});
+
 
 
 /**
@@ -132,3 +139,9 @@ saveBtn.addEventListener('click',(e)=>{
 console.log(editedPost);
    donePost(editURL,editedPost);
 })
+
+
+
+
+
+

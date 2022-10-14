@@ -1,5 +1,3 @@
-
-
 const API_BASE_URL = "https://nf-api.onrender.com/api/v1";
 const registerEndpoint = "/social/auth/register"; // POST
 const registerURL = `${API_BASE_URL}${registerEndpoint}`;
@@ -10,7 +8,7 @@ const userPassword = document.getElementById('password');
 const userConfirmPassword = document.getElementById('confirm-password');
 const userAvatar = document.getElementById('avatar');
 const userBanner = document.getElementById('banner');
-const userMessage=document.getElementById('userMessage');
+const userMessage = document.getElementById('userMessage');
 
 const nameError = document.getElementById('name-error');
 const emailError = document.getElementById('email-error');
@@ -21,10 +19,10 @@ const signup = document.getElementById('signup');
 
 
 
-signup.addEventListener('click', (e) => {   
+signup.addEventListener('click', (e) => {
     e.preventDefault();
     //console.log('form is submitted!');
-    
+
     const name = userName.value.trim();
     const email = userEmail.value.trim();
     const password = userPassword.value.trim();
@@ -36,44 +34,66 @@ signup.addEventListener('click', (e) => {
     const emailError = document.getElementById('email-error');
     const passwordError = document.getElementById('password-error');
     const confirmPasswordError = document.getElementById('confirm-password-error');
-    
-    if (name === "" || name.length < 5) {
-        nameError.innerHTML = "Please enter your name.";
+/**
+ * Validation limitations
+ * if email is already in use this validation showing the same email error message because there is no function to check duplicate email in the DB
+ */
+    var validation = true;
+    if (name === "") {
+        nameError.innerHTML = 'Name is required';
+        validation = false;
+    } else if (name.length < 3) {
+        nameError.innerHTML = "Name is too short.";
+        validation = false;
     } else {
         nameError.innerHTML = "";
     }
-    
-    if (email === "" || email.includes != "noroff.no") {
-        emailError.innerHTML = "Please enter a valid email address.";
+
+    if (email === "") {
+        emailError.innerHTML = 'Email is required';
+        validation = false;
+    } else if (email.includes != "noroff.no || student.noroff.no") {
+        emailError.innerHTML = "Please enter your student email address.";
+        validation = false;
     } else {
         emailError.innerHTML = "";
     }
-    
-    if (password === "" || password.length < 8) {
-        passwordError.innerHTML = "Please enter a valid password.(8 characters)";
+
+    if (password === "") {
+        passwordError.innerHTML = 'Password is required';
+        validation = false;
+    } else if (password.length < 8) {
+        passwordError.innerHTML = "password must be longer than 8.";
+        validation = false;
     } else {
         passwordError.innerHTML = "";
     }
-    
-    if (confirmPassword === "" || confirmPassword.length < 6) {
-        confirmPasswordError.innerHTML = "Please enter a valid password.";
-    } else {
+
+    if (confirmPassword === ""){
+        confirmPasswordError.innerHTML = "Please confirm your password.";
+        validation = false;
+    }
+     else if (confirmPassword.length < 8) {
+        confirmPasswordError.innerHTML = "Password must be longer than 8.";
+        validation = false;
+    } 
+    else {
         confirmPasswordError.innerHTML = "";
     }
-    
+
     if (password !== confirmPassword) {
         confirmPasswordError.innerHTML = "Passwords do not match.";
     } else {
         confirmPasswordError.innerHTML = "";
     }
-    
+
     const registerData = {
         name,
         email,
         password
     }
     //console.log(registerData); 
-    
+
     async function registerUser(url, data) {
         try {
             const options = {
@@ -84,7 +104,7 @@ signup.addEventListener('click', (e) => {
                 body: JSON.stringify(data),
             };
             //console.log(url, data, options);
-    
+
             const response = await fetch(url, options);
             //console.log(response);
             const answer = await response.json();
@@ -94,11 +114,11 @@ signup.addEventListener('click', (e) => {
                 <div class="alert alert-success" role="alert">
                 You are registered now! Please login!
               </div>`;
-    
+
                 setTimeout(() => {
                     window.location.href = '/index.html';
                 }, 5000);
-    
+
             };
         } catch (error) {
             //console.warn(error);
@@ -107,5 +127,3 @@ signup.addEventListener('click', (e) => {
     registerUser(registerURL, registerData);
 
 })
-
-

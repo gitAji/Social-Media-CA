@@ -11,6 +11,7 @@ login.addEventListener('click', (event) => {
     event.preventDefault();
     //console.log('form is submitted!');
 
+
     const login = document.getElementById('login');
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
@@ -18,17 +19,12 @@ login.addEventListener('click', (event) => {
     const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
     //console.log(email, password);
-
-    if (email === "" || email.includes != "noroff.no") {
-        emailError.innerHTML = "Please enter a valid email address.";
-    } else {
-        emailError.innerHTML = "";
-    }
-    if (password === "" || password.length < 6) {
-        passwordError.innerHTML = "Please enter a valid password.";
-    } else {
-        passwordError.innerHTML = "";
-    }
+    /**
+     * Validation limitations
+     * if email is already in use this validation showing the same email error message because there is no function to check duplicate email in the DB
+     */
+    
+     loginValidation(email,password);
 
     const loginData = {
         email,
@@ -62,3 +58,30 @@ login.addEventListener('click', (event) => {
     }
     loginUser(loginURL, loginData);
 })
+
+function loginValidation(){
+    var validation = true;
+    if (email === '') {
+        emailError.innerHTML = 'Email is required';
+        validation = false;
+    }
+    else if (email.includes != 'noroff.no' || email.includes != 'student.noroff.no') {
+        emailError.innerHTML = 'Email must be a student email';
+    validation = false;
+    } else {
+        emailError.innerHTML = '';
+       validation = true;
+
+    }
+    if (password === '') {
+        passwordError.innerHTML = 'Password is required';
+        validation = false;
+    } else if (password.length < 8) {
+        passwordError.innerHTML = 'Password must be at least 8 characters';
+        validation = false;
+    } else {
+        passwordError.innerHTML = '';
+       validation = true;
+    }
+
+}
