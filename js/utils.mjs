@@ -108,10 +108,11 @@ function filterPosts() {
   //console.log(filterQuery);
   const filteredPost = collection.filter((post) => {
     const id = post.id.toLocaleString();
+    const a=post.author.name.toLocaleString();
     const t = post.title.toLowerCase();
     const b = post.body.toLowerCase();
     const q = filterQuery.toLowerCase();
-    return t.includes(q) || b.includes(q) || id.includes(q);
+    return a.includes(q) || t.includes(q) || b.includes(q) || id.includes(q);
   });
   //console.log(filteredPost);
   listPosts(filteredPost);
@@ -254,7 +255,6 @@ export function listAPost(post, out) {
     editButton.classList.add('btn-primary');
     editButton.classList.add('btn-md');
     editButton.classList.add('m-2');
-    editButton.innerText = 'Edit';
     editButton.innerHTML = '<i class="fa fa-pen"></i>';
     editBtn.appendChild(editButton);
     const deleteButton = document.createElement('button');
@@ -262,7 +262,6 @@ export function listAPost(post, out) {
     deleteButton.classList.add('btn-secondary');
     deleteButton.classList.add('btn-md');
     deleteButton.classList.add('m-2');
-    deleteButton.innerText = 'Delete';
     deleteButton.innerHTML = '<i class="fa fa-trash"></i>';
     deleteBtn.appendChild(deleteButton);
   }

@@ -23,8 +23,30 @@ login.addEventListener('click', (event) => {
      * Validation limitations
      * if email is already in use this validation showing the same email error message because there is no function to check duplicate email in the DB
      */
+    var validation = true;
     
-     loginValidation(email,password);
+     if(email === ""){
+        emailError.innerHTML = 'Email is required';
+        validation = false;
+    } else if(email.includes != "noroff.no || student.noroff.no"){
+        emailError.innerHTML = "Please enter your student email address.";
+        validation = false;
+        
+    } else {
+        emailError.innerHTML = "";
+        validation = true;
+    }
+    if(password === ""){
+        passwordError.innerHTML = 'Password is required';
+        validation = false;
+    }
+    else if(password.length < 8){
+        passwordError.innerHTML = "Password is too short.";
+        validation = false;
+    } else {
+        passwordError.innerHTML = "";
+        validation = true;
+    }
 
     const loginData = {
         email,
@@ -58,30 +80,3 @@ login.addEventListener('click', (event) => {
     }
     loginUser(loginURL, loginData);
 })
-
-function loginValidation(){
-    var validation = true;
-    if (email === '') {
-        emailError.innerHTML = 'Email is required';
-        validation = false;
-    }
-    else if (email.includes != 'noroff.no' || email.includes != 'student.noroff.no') {
-        emailError.innerHTML = 'Email must be a student email';
-    validation = false;
-    } else {
-        emailError.innerHTML = '';
-       validation = true;
-
-    }
-    if (password === '') {
-        passwordError.innerHTML = 'Password is required';
-        validation = false;
-    } else if (password.length < 8) {
-        passwordError.innerHTML = 'Password must be at least 8 characters';
-        validation = false;
-    } else {
-        passwordError.innerHTML = '';
-       validation = true;
-    }
-
-}
