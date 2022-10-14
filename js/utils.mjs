@@ -387,6 +387,8 @@ export async function deletePost(url) {
  * @returns
  */
 const message = document.getElementById('user-message');
+const saveBtn=document.getElementById('edit-save-btn');
+const manageBtnX = document.getElementById('manage-button');
 
 export async function donePost(url, data) {
   try {
@@ -403,13 +405,16 @@ export async function donePost(url, data) {
     const response = await fetch(url, options);
     //console.log(response);
     const json = await response.json();
-    setTimeout(() => {
+    
+    if (response.ok) {
+     setTimeout(() => {
+      message.innerHTML = `<div class="text-success fw-bold p-4">Your post is updated!</div>`;
+     }, 500);
+     setTimeout(() => {
       window.location.reload();
     }, 1000);
-    if (response.ok) {
-      message.innerHTML = `<div class="spinner-border text-primary" role="status">
-       <span class="sr-only">Loading...</span>
-     </div>`;
+     
+      
     };
     //console.log(json);
     return json;
