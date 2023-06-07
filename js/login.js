@@ -26,7 +26,7 @@ login.addEventListener("click", (event) => {
   if (email === "") {
     emailError.innerHTML = "Email is required";
     validation = false;
-  } else if (email.includes != "noroff.no  student.noroff.no") {
+  } else if (!email.includes("noroff.no" || "student.noroff.no")) {
     emailError.innerHTML = "Please enter your student email address.";
     validation = false;
   } else {
@@ -49,8 +49,7 @@ login.addEventListener("click", (event) => {
     email,
     password,
   };
-  //console.log(loginData);
-  //fetch using post & send the login data to the server
+
   async function loginUser(url, data) {
     try {
       const options = {
@@ -60,23 +59,31 @@ login.addEventListener("click", (event) => {
         },
         body: JSON.stringify(data),
       };
-      //console.log(url, data, options);
 
       const response = await fetch(url, options);
-      //console.log(response);
       const answer = await response.json();
-      //console.log(answer);
+      console.log(answer);
+
       if (response.ok) {
         const userName = localStorage.setItem("username", answer.name);
         const accessToken = localStorage.setItem(
           "accessToken",
           answer.accessToken
         );
+        userMessage.innerHTML = "You are logged in!";
         window.location.href = "/home.html";
       }
+      if (response.status === 400) {
+        userMessage.innerHTML = "Please enter your email and password.";
+      }
+      if (response.status === 401) {
+        userMessage.innerHTML = "user credentials are invalid";
+      }
     } catch (error) {
-      console.warn(error);
+      console.log(error);
+      userMessage.innerHTML = "Something went wrong. Please try again.";
     }
   }
+
   loginUser(loginURL, loginData);
 });
